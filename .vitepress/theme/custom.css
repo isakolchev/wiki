@@ -141,6 +141,34 @@
 }
 
 
+/* ── Кнопки hero на главной — высота 56, радиус 16 ────────── */
+/* .VPButton.medium — scoped [data-v] → перебиваем !important.
+   Высота = line-height + 2×border(1px) → 54 + 2 = 56. */
+.VPButton.medium {
+  border-radius: 16px !important;
+  line-height: 54px !important;
+}
+
+/* Вторая (alt) кнопка — бежевая вместо серой */
+:root {
+  --vp-button-alt-bg:           var(--color-beige-100);
+  --vp-button-alt-border:       var(--color-beige-100);
+  --vp-button-alt-hover-bg:     var(--color-beige-200);
+  --vp-button-alt-hover-border: var(--color-beige-200);
+  --vp-button-alt-active-bg:    var(--color-beige-200);
+  --vp-button-alt-active-border: var(--color-beige-300);
+}
+.dark {
+  /* в тёмной beige-100 сломал бы контраст — нейтральная тёмная кнопка */
+  --vp-button-alt-bg:           var(--color-neutral-800);
+  --vp-button-alt-border:       var(--color-beige-700);
+  --vp-button-alt-hover-bg:     var(--color-neutral-700);
+  --vp-button-alt-hover-border: var(--color-beige-600);
+  --vp-button-alt-active-bg:    var(--color-neutral-700);
+  --vp-button-alt-active-border: var(--color-beige-600);
+}
+
+
 /* ── Warning — тёплый амбер ───────────────────────────────── */
 /* В PDS2 нет warning-токена. Это ПРЕДЛОЖЕНИЕ: тёплый амбер в тон бежевым
    (hue ~66–82, приглушённый), отличимый от красного danger и синего info.
