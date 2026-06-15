@@ -134,6 +134,11 @@
 .VPNavBarTitle.has-sidebar .title {
   border-bottom-color: transparent !important;
 }
+/* разделитель над навигацией «Previous / Next page» */
+.VPDocFooter .prev-next {
+  border-top: none !important;
+  padding-top: 0 !important;
+}
 
 
 /* ── Warning — тёплый амбер ───────────────────────────────── */
