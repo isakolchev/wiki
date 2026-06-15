@@ -1,0 +1,163 @@
+/* ============================================================
+   VitePress ← PDS2 bridge
+   Переопределяет переменные темы VitePress через токены PDS2.
+   Подключать ПОСЛЕ theme.css (там живут --color-*, --font-*).
+   В .vitepress/theme/index.js:
+       import '../../theme.css'   // ваши PDS2-примитивы
+       import './custom.css'      // этот мост
+   ------------------------------------------------------------
+   Примечание про тёмную тему:
+   VitePress переключает её классом <html class="dark">, а PDS2 —
+   через [data-theme]. Чтобы не зависеть от рассинхрона механизмов,
+   мост ссылается напрямую на ПРИМИТИВЫ PDS2 (они всегда в :root),
+   а в комментарии указан семантический эквивалент.
+   ============================================================ */
+
+
+/* ── Шрифты ───────────────────────────────────────────────── */
+:root {
+  --vp-font-family-base: var(--font-body);    /* TT Fors */
+  --vp-font-family-mono: var(--font-button);  /* TT Commons Pro Mono */
+}
+
+/* В PDS2 heading == body (обе TT Fors). Если разведёте — раскомментируйте: */
+/* .vp-doc :is(h1, h2, h3, h4) { font-family: var(--font-heading); } */
+
+
+/* ── Светлая тема ─────────────────────────────────────────── */
+:root {
+  /* Фоны */
+  --vp-c-bg:      var(--color-beige-0);    /* фон страницы (белый) */
+  --vp-c-bg-alt:  var(--color-beige-50);   /* сайдбар / код-блок */
+  --vp-c-bg-soft: var(--color-beige-50);   /* мягкие панели */
+  --vp-c-bg-elv:  var(--color-beige-0);    /* всплывающие/карточки */
+
+  /* Текст */
+  --vp-c-text-1: var(--color-beige-900);   /* = --text-primary */
+  --vp-c-text-2: var(--color-beige-600);   /* = --text-secondary */
+  --vp-c-text-3: var(--color-beige-500);   /* = --text-muted */
+
+  /* Линии */
+  --vp-c-divider: var(--color-beige-200);  /* = --border-default */
+  --vp-c-border:  var(--color-beige-200);  /* = --border-default */
+  --vp-c-gutter:  var(--color-beige-200);
+
+  /* Бренд (ссылки, акценты, primary-кнопка) → синий */
+  --vp-c-brand-1:    var(--color-blue-500); /* = --primary-default / --text-link */
+  --vp-c-brand-2:    var(--color-blue-600); /* hover = --primary-hover */
+  --vp-c-brand-3:    var(--color-blue-700); /* solid bg = --primary-active */
+  --vp-c-brand-soft: var(--color-blue-50);  /* = --primary-subtle */
+
+  /* Danger / ошибки → красный (PDS2 secondary) */
+  --vp-c-danger-1:    var(--color-red-600); /* = --text-error */
+  --vp-c-danger-2:    var(--color-red-500);
+  --vp-c-danger-3:    var(--color-red-700);
+  --vp-c-danger-soft: var(--color-red-50);  /* = --bg-accent */
+}
+
+
+/* ── Тёмная тема (VitePress: html.dark) ───────────────────── */
+.dark {
+  /* Фоны */
+  --vp-c-bg:      var(--color-neutral-900); /* = dark --bg-default */
+  --vp-c-bg-alt:  var(--color-neutral-800); /* = dark --bg-surface */
+  --vp-c-bg-soft: var(--color-neutral-800);
+  --vp-c-bg-elv:  var(--color-neutral-800);
+
+  /* Текст */
+  --vp-c-text-1: var(--color-beige-100);    /* = dark --text-primary */
+  --vp-c-text-2: var(--color-beige-300);    /* = dark --text-secondary */
+  --vp-c-text-3: var(--color-beige-500);    /* = dark --text-muted */
+
+  /* Линии */
+  --vp-c-divider: var(--color-beige-700);   /* = dark --border-subtle */
+  --vp-c-border:  var(--color-beige-600);   /* = dark --border-default */
+  --vp-c-gutter:  var(--color-beige-700);
+
+  /* Бренд → синий (светлее в тёмной) */
+  --vp-c-brand-1:    var(--color-blue-400); /* = dark --primary-default */
+  --vp-c-brand-2:    var(--color-blue-500);
+  --vp-c-brand-3:    var(--color-blue-600);
+  --vp-c-brand-soft: var(--color-blue-700); /* = dark --primary-subtle */
+
+  /* Danger → красный */
+  --vp-c-danger-1:    var(--color-red-400); /* = dark --text-error */
+  --vp-c-danger-2:    var(--color-red-500);
+  --vp-c-danger-3:    var(--color-red-600);
+  --vp-c-danger-soft: var(--color-red-800); /* = dark --bg-accent */
+}
+
+
+/* ── Кнопки primary (на всякий случай явно) ───────────────── */
+:root {
+  --vp-button-brand-text:        var(--color-beige-0);  /* = --primary-foreground */
+  --vp-button-brand-bg:          var(--color-blue-500);
+  --vp-button-brand-hover-text:  var(--color-beige-0);
+  --vp-button-brand-hover-bg:    var(--color-blue-600);
+  --vp-button-brand-active-bg:   var(--color-blue-700);
+}
+.dark {
+  --vp-button-brand-bg:        var(--color-blue-400);
+  --vp-button-brand-hover-bg:  var(--color-blue-500);
+  --vp-button-brand-active-bg: var(--color-blue-600);
+}
+
+
+/* ── Убрать разделители над заголовками h2 ────────────────── */
+.vp-doc h2 {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 40px;
+}
+
+/* ── Ячейки таблиц — выравнивание по верху (по первой строке) ── */
+.vp-doc td,
+.vp-doc th {
+  vertical-align: top;
+}
+
+/* ── Цитаты — курсивом ────────────────────────────────────── */
+.vp-doc blockquote {
+  font-style: italic;
+}
+
+/* ── Убрать разделители в сайдбаре и под логотипом ────────── */
+/* scoped-стили VitePress ([data-v]) перебивают по специфичности → !important */
+.VPSidebar .group + .group {
+  border-top: none !important;
+  padding-top: 0 !important;
+  margin-top: 20px;
+}
+.VPNavBar .divider-line {
+  display: none !important;
+}
+.VPNavBarTitle.has-sidebar .title {
+  border-bottom-color: transparent !important;
+}
+
+
+/* ── Warning — тёплый амбер ───────────────────────────────── */
+/* В PDS2 нет warning-токена. Это ПРЕДЛОЖЕНИЕ: тёплый амбер в тон бежевым
+   (hue ~66–82, приглушённый), отличимый от красного danger и синего info.
+   На согласование с командой — при ок занести в PDS2 как --color-amber-*. */
+:root {
+  --color-amber-50:  oklch(96.5% 0.030 82);  /* фон блока (светлая) */
+  --color-amber-200: oklch(90.0% 0.060 80);  /* бордер */
+  --color-amber-300: oklch(85.0% 0.090 82);  /* текст на тёмном */
+  --color-amber-500: oklch(72.0% 0.130 74);  /* акцент */
+  --color-amber-600: oklch(62.0% 0.125 70);
+  --color-amber-700: oklch(51.0% 0.100 66);  /* заголовок/текст на светлом */
+  --color-amber-800: oklch(30.0% 0.050 66);  /* фон блока (тёмная) */
+
+  /* светлая */
+  --vp-c-warning-1:    var(--color-amber-700);
+  --vp-c-warning-2:    var(--color-amber-600);
+  --vp-c-warning-3:    var(--color-amber-500);
+  --vp-c-warning-soft: var(--color-amber-50);
+}
+.dark {
+  --vp-c-warning-1:    var(--color-amber-300);
+  --vp-c-warning-2:    var(--color-amber-500);
+  --vp-c-warning-3:    var(--color-amber-600);
+  --vp-c-warning-soft: var(--color-amber-800);
+}

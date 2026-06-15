@@ -1,0 +1,237 @@
+/* ============================================================
+   PDS2 Design System — theme.css
+   ============================================================ */
+
+
+/* ── Primitive colors ─────────────────────────────────────── */
+
+:root {
+  /* Blue */
+  --color-blue-50:  oklch(96.10% 0.0160 253.95);
+  --color-blue-400: oklch(64.26% 0.1821 255.35);
+  --color-blue-500: oklch(56.34% 0.2409 260.82);
+  --color-blue-600: oklch(48.61% 0.1976 259.94);
+  --color-blue-700: oklch(42.13% 0.1745 260.28);
+
+  /* Red */
+  --color-red-50:  oklch(95.99% 0.0171 35.14);
+  --color-red-200: oklch(90.07% 0.0433 26.72);
+  --color-red-400: oklch(68.39% 0.2060 36.37);
+  --color-red-500: oklch(66.27% 0.2252 31.90);
+  --color-red-600: oklch(57.92% 0.2117 32.16);
+  --color-red-700: oklch(51.34% 0.1920 32.47);
+  --color-red-800: oklch(38.72% 0.1309 33.63);
+  --color-red-900: oklch(28.79% 0.0110 36.41);
+
+  /* Beige */
+  --color-beige-0:   oklch(100.00% 0.0001 263.28);
+  --color-beige-50:  oklch(96.64% 0.0058 59.32);
+  --color-beige-100: oklch(94.94% 0.0130 71.26);
+  --color-beige-200: oklch(92.46% 0.0153 61.23);
+  --color-beige-300: oklch(79.67% 0.0069 28.38);
+  --color-beige-400: oklch(68.42% 0.0076 39.13);
+  --color-beige-500: oklch(54.46% 0.0163 39.24);
+  --color-beige-600: oklch(43.08% 0.0062 48.38);
+  --color-beige-700: oklch(30.90% 0.0060 34.11);
+  --color-beige-800: oklch(19.45% 0.0229 33.49);
+  --color-beige-900: oklch(15.37% 0.0408 49.70);
+
+  /* Neutral */
+  --color-neutral-700: oklch(31.20% 0.0108 36.40);
+  --color-neutral-800: oklch(20.77% 0.0052 39.24);
+  --color-neutral-900: oklch(16.58% 0.0040 48.36);
+}
+
+
+/* ── Spacing ──────────────────────────────────────────────── */
+
+:root {
+  --spacing-s:   4px;
+  --spacing-m:   8px;
+  --spacing-l:   12px;
+  --spacing-xl:  16px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+  --spacing-4xl: 40px;
+}
+
+
+/* ── Border radius ────────────────────────────────────────── */
+
+:root {
+  --radius-s:   4px;
+  --radius-m:   8px;
+  --radius-l:   12px;
+  --radius-xl:  16px;
+  --radius-2xl: 24px;
+}
+
+
+/* ── Typography ───────────────────────────────────────────── */
+
+:root {
+  /* Font families */
+  --font-heading: 'TT Fors', sans-serif;
+  --font-body:    'TT Fors', sans-serif;
+  --font-button:  'TT Commons Pro Mono', monospace;
+
+  /* Heading */
+  --text-heading-size:           36px;
+  --text-heading-weight:         700;
+  --text-heading-line-height:    40px;
+  --text-heading-letter-spacing: -2px;
+
+  /* Subheading */
+  --text-subheading-size:        20px;
+  --text-subheading-weight:      600;
+  --text-subheading-line-height: 24px;
+
+  /* Body */
+  --text-body-size:              16px;
+  --text-body-weight:            400;
+  --text-body-weight-bold:       600;
+  --text-body-line-height:       20px;
+
+  /* Caption */
+  --text-caption-size:           12px;
+  --text-caption-weight:         400;
+  --text-caption-weight-bold:    600;
+  --text-caption-line-height:    15px;
+
+  /* Button */
+  --text-button-s-size:          12px;
+  --text-button-m-size:          14px;
+  --text-button-l-size:          16px;
+  --text-button-weight:          400;
+  --text-button-line-height:     18px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --text-heading-size:           30px;
+    --text-heading-line-height:    32px;
+    --text-heading-letter-spacing: -1px;
+
+    --text-subheading-size:        18px;
+    --text-subheading-line-height: 20px;
+  }
+}
+
+
+/* ── Semantic tokens — Light ──────────────────────────────── */
+
+:root,
+[data-theme='light'] {
+  /* Background */
+  --bg-default: var(--color-beige-50);
+  --bg-surface: var(--color-beige-0);
+  --bg-subtle:  var(--color-beige-100);
+  --bg-inverse: var(--color-beige-900);
+  --bg-accent:  var(--color-red-50);
+
+  /* Text */
+  --text-primary:   var(--color-beige-900);
+  --text-secondary: var(--color-beige-600);
+  --text-muted:     var(--color-beige-500);
+  --text-inverse:   var(--color-beige-0);
+  --text-link:      var(--color-blue-500);
+  --text-disabled:  var(--color-beige-300);
+  --text-error:     var(--color-red-600);
+
+  /* Border */
+  --border-default: var(--color-beige-200);
+  --border-subtle:  var(--color-beige-100);
+  --border-strong:  var(--color-beige-300);
+  --border-red:     var(--color-red-200);
+  --border-focus:   var(--color-blue-500);
+  --border-error:   var(--color-red-500);
+
+  /* Primary */
+  --primary-default:    var(--color-blue-500);
+  --primary-hover:      var(--color-blue-600);
+  --primary-active:     var(--color-blue-700);
+  --primary-subtle:     var(--color-blue-50);
+  --primary-foreground: var(--color-beige-0);
+  --primary-border:     var(--color-blue-500);
+
+  /* Secondary */
+  --secondary-default:    var(--color-red-500);
+  --secondary-hover:      var(--color-red-600);
+  --secondary-active:     var(--color-red-700);
+  --secondary-foreground: var(--color-beige-0);
+  --secondary-focus-ring: var(--color-red-500);
+
+  /* Ghost */
+  --ghost-bg:        var(--color-beige-50);
+  --ghost-bg-hover:  var(--color-beige-100);
+  --ghost-bg-active: var(--color-beige-200);
+
+  /* State */
+  --state-hover-bg:      var(--color-beige-50);
+  --state-hover-bg-red:  var(--color-red-50);
+  --state-hover-accent:  var(--color-red-200);
+  --state-disabled-bg:   var(--color-beige-100);
+  --state-disabled-text: var(--color-beige-300);
+  --state-focus-ring:    var(--color-blue-500);
+}
+
+
+/* ── Semantic tokens — Dark ───────────────────────────────── */
+
+[data-theme='dark'],
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    /* Background */
+    --bg-default: var(--color-neutral-900);
+    --bg-surface: var(--color-neutral-800);
+    --bg-subtle:  var(--color-neutral-700);
+    --bg-inverse: var(--color-beige-100);
+    --bg-accent:  var(--color-red-800);
+
+    /* Text */
+    --text-primary:   var(--color-beige-100);
+    --text-secondary: var(--color-beige-300);
+    --text-muted:     var(--color-beige-500);
+    --text-inverse:   var(--color-beige-900);
+    --text-link:      var(--color-blue-400);
+    --text-disabled:  var(--color-beige-600);
+    --text-error:     var(--color-red-400);
+
+    /* Border */
+    --border-default: var(--color-beige-600);
+    --border-subtle:  var(--color-beige-700);
+    --border-strong:  var(--color-beige-500);
+    --border-red:     var(--color-red-700);
+    --border-focus:   var(--color-blue-400);
+    --border-error:   var(--color-red-400);
+
+    /* Primary */
+    --primary-default:    var(--color-blue-400);
+    --primary-hover:      var(--color-blue-500);
+    --primary-active:     var(--color-blue-600);
+    --primary-subtle:     var(--color-blue-700);
+    --primary-foreground: var(--color-beige-0);
+    --primary-border:     var(--color-blue-400);
+    --primary-focus-ring: var(--color-blue-400);
+
+    /* Secondary */
+    --secondary-default:    var(--color-red-400);
+    --secondary-hover:      var(--color-red-500);
+    --secondary-active:     var(--color-red-600);
+    --secondary-foreground: var(--color-beige-0);
+    --secondary-focus-ring: var(--color-red-400);
+
+    /* Ghost */
+    --ghost-bg:        var(--color-beige-700);
+    --ghost-bg-hover:  var(--color-beige-600);
+    --ghost-bg-active: var(--color-beige-500);
+
+    /* State */
+    --state-hover-bg:      var(--color-beige-700);
+    --state-hover-bg-red:  var(--color-red-800);
+    --state-hover-accent:  var(--color-red-800);
+    --state-disabled-bg:   var(--color-beige-700);
+    --state-disabled-text: var(--color-beige-600);
+    --state-focus-ring:    var(--color-blue-400);
+  }
+}
