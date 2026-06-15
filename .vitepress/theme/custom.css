@@ -107,13 +107,42 @@
 .vp-doc h2 {
   border-top: none;
   padding-top: 0;
-  margin-top: 40px;
+  margin-top: 64px;
+}
+.vp-doc h3 {
+  margin-top: 48px;
 }
 
 /* ── Ячейки таблиц — выравнивание по верху (по первой строке) ── */
 .vp-doc td,
 .vp-doc th {
   vertical-align: top;
+}
+
+/* ── Убрать черезполосицу (зебру) — фон только у шапки (th) ──── */
+.vp-doc tr:nth-child(2n) {
+  background-color: var(--vp-c-bg);
+}
+
+/* ── Убрать рамки ячеек (гориз. + верт.) и левый отступ ──────── */
+.vp-doc tr {
+  border-top: none;
+}
+.vp-doc th,
+.vp-doc td {
+  border: none;
+  padding-left: 0;
+}
+
+/* шапка: без фона, тёмный текст */
+.vp-doc th {
+  background-color: transparent;
+  color: var(--vp-c-text-1);
+}
+
+/* данные: плотнее межстрочный интервал внутри ячейки */
+.vp-doc td {
+  line-height: 1.5;
 }
 
 /* ── Цитаты — курсивом ────────────────────────────────────── */
