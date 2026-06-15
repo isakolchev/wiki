@@ -1,9 +1,10 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'QCAT',
-  description: 'Превью темы PDS2 на VitePress',
+  title: 'Quotcat Wiki',
+  description: 'База знаний и документация проекта',
   lang: 'ru-RU',
+  base: '/wiki/',
   themeConfig: {
     logo: { light: '/logo.svg', dark: '/logo-dark.svg' },
     siteTitle: false,
