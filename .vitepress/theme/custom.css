@@ -156,16 +156,17 @@
   --vp-button-alt-hover-bg:     var(--color-beige-200);
   --vp-button-alt-hover-border: var(--color-beige-200);
   --vp-button-alt-active-bg:    var(--color-beige-200);
-  --vp-button-alt-active-border: var(--color-beige-300);
+  --vp-button-alt-active-border: var(--color-beige-200);
 }
 .dark {
-  /* в тёмной beige-100 сломал бы контраст — нейтральная тёмная кнопка */
+  /* в тёмной beige-100 сломал бы контраст — нейтральная тёмная кнопка.
+     Рамка = цвет фона кнопки → визуально без обводки. */
   --vp-button-alt-bg:           var(--color-neutral-800);
-  --vp-button-alt-border:       var(--color-beige-700);
+  --vp-button-alt-border:       var(--color-neutral-800);
   --vp-button-alt-hover-bg:     var(--color-neutral-700);
-  --vp-button-alt-hover-border: var(--color-beige-600);
+  --vp-button-alt-hover-border: var(--color-neutral-700);
   --vp-button-alt-active-bg:    var(--color-neutral-700);
-  --vp-button-alt-active-border: var(--color-beige-600);
+  --vp-button-alt-active-border: var(--color-neutral-700);
 }
 
 
