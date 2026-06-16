@@ -150,6 +150,18 @@
   font-style: italic;
 }
 
+/* ── Подчёркивание ссылок — тоньше, прозрачнее, без разрывов ─ */
+/* skip-ink: none → линия не рвётся под свисающими буквами (р, у, ц).
+   decoration-color через color-mix → тот же бренд-цвет, но приглушённый. */
+.vp-doc a {
+  text-decoration-thickness: 1px;
+  text-decoration-skip-ink: none;
+  text-decoration-color: color-mix(in srgb, var(--vp-c-brand-1) 35%, transparent);
+}
+.vp-doc a:hover {
+  text-decoration-color: color-mix(in srgb, var(--vp-c-brand-2) 55%, transparent);
+}
+
 /* ── Убрать разделители в сайдбаре и под логотипом ────────── */
 /* scoped-стили VitePress ([data-v]) перебивают по специфичности → !important */
 .VPSidebar .group + .group {
@@ -159,6 +171,20 @@
 }
 .VPNavBar .divider-line {
   display: none !important;
+}
+/* вертикальные полоски между группами навбара
+   (меню ↔ переключатель темы ↔ соцссылки) — псевдоэлементы ::before */
+.VPNavBar .menu + .translations::before,
+.VPNavBar .menu + .appearance::before,
+.VPNavBar .menu + .social-links::before,
+.VPNavBar .translations + .appearance::before,
+.VPNavBar .appearance + .social-links::before {
+  display: none !important;
+}
+/* полоски держали отступ своими margin'ами — возвращаем его явно (чуть шире) */
+.VPNavBar .appearance,
+.VPNavBar .social-links {
+  margin-left: 22px;
 }
 .VPNavBarTitle.has-sidebar .title {
   border-bottom-color: transparent !important;
