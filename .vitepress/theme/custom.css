@@ -113,15 +113,9 @@
   margin-top: 48px;
 }
 
-/* ── Якорь (#) — сразу после текста заголовка, не absolute слева/снизу ── */
-.vp-doc .header-anchor {
-  position: relative;
-  left: auto;
-  top: 0;
-  margin-left: 0.4em;
-}
-/* перебиваем сдвиг top:24px, который VitePress задаёт якорю у h2 */
+/* ── Якорь (#) — слева от заголовка, выровнен по первой строке ──── */
 .vp-doc h2 .header-anchor {
+  /* было top:24px — компенсировало padding-top:24px у h2, который мы убрали */
   top: 0;
 }
 
