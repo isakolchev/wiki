@@ -150,6 +150,16 @@
   font-style: italic;
 }
 
+/* ── Info / details блок — бежевый вместо серого ──────────── */
+:root {
+  --vp-custom-block-info-bg:      var(--color-beige-50);
+  --vp-custom-block-info-code-bg: var(--color-beige-50);
+}
+.dark {
+  --vp-custom-block-info-bg:      var(--color-neutral-700);
+  --vp-custom-block-info-code-bg: var(--color-neutral-700);
+}
+
 /* ── Подчёркивание ссылок — тоньше, прозрачнее, без разрывов ─ */
 /* skip-ink: none → линия не рвётся под свисающими буквами (р, у, ц).
    decoration-color через color-mix → тот же бренд-цвет, но приглушённый. */
