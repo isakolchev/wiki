@@ -71,9 +71,13 @@
 
 :root {
   /* Font families */
-  --font-heading: 'TT Fors', sans-serif;
-  --font-body:    'TT Fors', sans-serif;
-  --font-button:  'TT Commons Pro Mono', monospace;
+  /* Inter — fallback до системного sans-serif (он встроен в VitePress
+     через @font-face, рендерится одинаково во всех браузерах). */
+  --font-heading: 'TT Fors', 'Inter', sans-serif;
+  --font-body:    'TT Fors', 'Inter', sans-serif;
+  /* mono-шрифт кнопок/кода: Inter не моноширинный → системный моно-стек
+     (приличный fallback на всех ОС вместо голого monospace) */
+  --font-button:  'TT Commons Pro Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
 
   /* Heading */
   --text-heading-size:           36px;
