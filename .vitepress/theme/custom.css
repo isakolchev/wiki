@@ -174,8 +174,14 @@
   text-decoration-skip-ink: none;
   text-decoration-color: color-mix(in srgb, var(--vp-c-brand-1) 35%, transparent);
 }
+/* Ховер ссылок — тёплый red (как активный акцент навигации) */
 .vp-doc a:hover {
-  text-decoration-color: color-mix(in srgb, var(--vp-c-brand-2) 55%, transparent);
+  color: var(--color-red-500);
+  text-decoration-color: color-mix(in srgb, var(--color-red-500) 55%, transparent);
+}
+.dark .vp-doc a:hover {
+  color: var(--color-red-400);
+  text-decoration-color: color-mix(in srgb, var(--color-red-400) 55%, transparent);
 }
 
 /* ── Убрать разделители в сайдбаре и под логотипом ────────── */
@@ -209,6 +215,34 @@
 .VPDocFooter .prev-next {
   border-top: none !important;
   padding-top: 0 !important;
+}
+
+
+/* ── Активный пункт сайдбара — тёплый акцент (red вместо blue) ── */
+/* VitePress красит активный пункт (текст в моб. меню + индикатор-полосу)
+   через --vp-c-brand-1. Переопределяем переменную ЛОКАЛЬНО в сайдбаре и
+   мобильном меню → активный акцент становится тёплым, глобальные ссылки и
+   кнопки остаются на синем. PDS2: тёплая палитра = red. На тёмном фоне —
+   более светлый red-400 для читаемости. */
+.VPSidebar,
+.VPNavScreen,
+.VPNavBar,
+.VPDocAside {
+  --vp-c-brand-1: var(--color-red-500);
+}
+.dark .VPSidebar,
+.dark .VPNavScreen,
+.dark .VPNavBar,
+.dark .VPDocAside {
+  --vp-c-brand-1: var(--color-red-400);
+}
+/* VitePress держит текст активного пункта на вторичном цвете (beige-600) —
+   красим явно, !important перебивает scoped-правило ([data-v]). */
+.VPSidebarItem.is-active > .item .link .text {
+  color: var(--color-red-500) !important;
+}
+.dark .VPSidebarItem.is-active > .item .link .text {
+  color: var(--color-red-400) !important;
 }
 
 
@@ -252,7 +286,7 @@
   --color-amber-500: oklch(72.0% 0.130 74);  /* акцент */
   --color-amber-600: oklch(62.0% 0.125 70);
   --color-amber-700: oklch(51.0% 0.100 66);  /* заголовок/текст на светлом */
-  --color-amber-800: oklch(30.0% 0.050 66);  /* фон блока (тёмная) */
+  --color-amber-800: oklch(36.0% 0.085 60);  /* фон блока (тёмная) — тёплый янтарно-оранжевый, паритет с danger по светлоте */
 
   /* светлая */
   --vp-c-warning-1:    var(--color-amber-700);
@@ -265,4 +299,34 @@
   --vp-c-warning-2:    var(--color-amber-500);
   --vp-c-warning-3:    var(--color-amber-600);
   --vp-c-warning-soft: var(--color-amber-800);
+}
+
+
+/* ── Подсветка кода (Shiki) — красный ключевых слов → наш red ─ */
+/* Тема GitHub красит keyword'ы внеплановым красным (light #D73A49 /
+   dark #F97583) — не из нашей палитры. Перекрашиваем на --color-red-*.
+   Токен матчим по hex в inline-переменной Shiki; атрибутный селектор
+   поднимает специфичность над правилом VitePress color:var(--shiki-*). */
+.vp-doc [class*="language-"] span[style*="#F97583"] {
+  color: var(--color-red-600);
+}
+.dark .vp-doc [class*="language-"] span[style*="#F97583"] {
+  color: var(--color-red-400);
+}
+
+
+/* ── Футер Prev/Next — ховер тёплым red (рамка + заголовок) ─── */
+/* В покое рамка серая, заголовок синий — не трогаем. На ховере VitePress
+   красит рамку в brand; добавляем сюда же тёплый цвет заголовка. */
+.VPDocFooter .pager-link:hover {
+  border-color: var(--color-red-500) !important;
+}
+.VPDocFooter .pager-link:hover .title {
+  color: var(--color-red-500);
+}
+.dark .VPDocFooter .pager-link:hover {
+  border-color: var(--color-red-400) !important;
+}
+.dark .VPDocFooter .pager-link:hover .title {
+  color: var(--color-red-400);
 }
