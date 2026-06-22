@@ -88,18 +88,24 @@
 }
 
 
-/* ── Кнопки primary (на всякий случай явно) ───────────────── */
+/* ── Кнопки primary — красные (border = bg, иначе остаётся синий контур) ─ */
 :root {
-  --vp-button-brand-text:        var(--color-beige-0);  /* = --primary-foreground */
-  --vp-button-brand-bg:          var(--color-blue-500);
-  --vp-button-brand-hover-text:  var(--color-beige-0);
-  --vp-button-brand-hover-bg:    var(--color-blue-600);
-  --vp-button-brand-active-bg:   var(--color-blue-700);
+  --vp-button-brand-text:          var(--color-beige-0);  /* = --primary-foreground */
+  --vp-button-brand-bg:            var(--color-red-500);
+  --vp-button-brand-border:        var(--color-red-500);
+  --vp-button-brand-hover-text:    var(--color-beige-0);
+  --vp-button-brand-hover-bg:      var(--color-red-600);
+  --vp-button-brand-hover-border:  var(--color-red-600);
+  --vp-button-brand-active-bg:     var(--color-red-700);
+  --vp-button-brand-active-border: var(--color-red-700);
 }
 .dark {
-  --vp-button-brand-bg:        var(--color-blue-400);
-  --vp-button-brand-hover-bg:  var(--color-blue-500);
-  --vp-button-brand-active-bg: var(--color-blue-600);
+  --vp-button-brand-bg:            var(--color-red-400);
+  --vp-button-brand-border:        var(--color-red-400);
+  --vp-button-brand-hover-bg:      var(--color-red-500);
+  --vp-button-brand-hover-border:  var(--color-red-500);
+  --vp-button-brand-active-bg:     var(--color-red-600);
+  --vp-button-brand-active-border: var(--color-red-600);
 }
 
 
